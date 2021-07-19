@@ -9,8 +9,11 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        #bind:
-        #    $environment: '%kernel.environment%'
+
+    App\Abc\:
+        resource: '../src/Abc/'
+        bind:
+            $debug: '%kernel.debug%'
 
     App\Handler\:
         resource: '../src/Handler/'
@@ -24,4 +27,6 @@ services:
 
     App\Controller\:
         resource: '../src/Controller/'
+        bind:
+            $environment: '%kernel.environment%'
 
